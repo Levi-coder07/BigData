@@ -13,7 +13,7 @@ using namespace chrono;
 int main() {
     unordered_map<string, unordered_set<string>> wordFrequency;
     const int numThreads = omp_get_max_threads();
-    cout<<numThreads;    // Archivo de salida
+    cout<<numThreads;   
     ofstream outputFile("output.txt");
     if (!outputFile.is_open()) {
         cerr << "Error: No se pudo abrir el archivo de salida" << endl;
@@ -63,7 +63,8 @@ int main() {
     auto duration = duration_cast<milliseconds>(end - start); //Duration
     outputFile << "Tiempo total de ejecucion: " << duration.count() << " ms" << endl;
 
-    // Mostrar la frecuencia de las palabras
+    //Freq
+
     for (const auto& pair : wordFrequency) {
         outputFile << pair.first << ": ";
         for (const auto& filename : pair.second) {
